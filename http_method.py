@@ -14,9 +14,10 @@ def get_students():
 @app.route("/students", methods=["POST"])
 def add_students():
     data = request.get_json()
-    new_student = {"id": len(students) + 1, "name": data["name"]}
+    new_student = {"id": len(students) + 1, "name": data["name"]
+    }
     students.append(new_student)
-    return jsonify(new_student), 201
 
+    return {"message": "Student added sucessfully"},201
 if __name__ =="__main__":
     app.run(debug=True)
